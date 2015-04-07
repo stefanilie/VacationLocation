@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using VacationLocation.Models;
 
+[assembly: OwinStartup(typeof(VacationLocation.Startup))]
 namespace VacationLocation
 {
     public partial class Startup
@@ -54,10 +55,10 @@ namespace VacationLocation
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
+            app.UseFacebookAuthentication(
+               appId: "1583297535286138",
+               appSecret: "435533d28046a031cf1d25dfc06f5591");
+            
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",
