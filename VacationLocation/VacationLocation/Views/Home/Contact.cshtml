@@ -1,17 +1,108 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Formular</legend>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="ageInput">Care este vârsta dumneavoastră:</label>
+            <div class="controls">
+                <input id="ageInput" name="ageInput" type="text" placeholder=" " class="input-xlarge" required="">
+
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="control-group">
+            <label class="control-label" for="statusCasatorie">Sunteţi căsătorit/căsătorită:</label>
+            <div class="controls">
+                <select id="statusCasatorie" name="statusCasatorie" class="input-xlarge">
+                    <option>Nu</option>
+                    <option>Da</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="control-group">
+            <label class="control-label" for="statusCopii">Aveţi copii</label>
+            <div class="controls">
+                <select id="statusCopii" name="statusCopii" class="input-xlarge">
+                    <option>Nu</option>
+                    <option>Da</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="locNatal">Localitate natală</label>
+            <div class="controls">
+                <input id="locNatal" name="locNatal" type="text" placeholder="" class="input-xlarge" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="domiciliuActual">Domiciliu actual</label>
+            <div class="controls">
+                <input id="domiciliuActual" name="domiciliuActual" type="text" placeholder="" class="input-xlarge" required="">
+
+            </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="control-group">
+            <label class="control-label" for="zonaClimatica">Ce zona climatică aţi dori sa vizitaţi:</label>
+            <div class="controls">
+                <label class="radio" for="zonaClimatica-0">
+                    <input type="radio" name="zonaClimatica" id="zonaClimatica-0" value="Zonă caldă (Bazinul Amazonului,America de Sud, India )" checked="checked">
+                    Zonă caldă (Bazinul Amazonului,America de Sud, India )
+                </label>
+                <label class="radio" for="zonaClimatica-1">
+                    <input type="radio" name="zonaClimatica" id="zonaClimatica-1" value="Zonă temperată (Centrul si vestul Europei, coasta Americii si a Canadei)">
+                    Zonă temperată (Centrul si vestul Europei, coasta Americii si a Canadei)
+                </label>
+                <label class="radio" for="zonaClimatica-2">
+                    <input type="radio" name="zonaClimatica" id="zonaClimatica-2" value="Zonă rece (Polul Nord)">
+                    Zonă rece (Polul Nord)
+                </label>
+            </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="control-group">
+            <label class="control-label" for="dimensiuneOras">Ce tip de oraş preferaţi</label>
+            <div class="controls">
+                <label class="radio" for="dimensiuneOras-0">
+                    <input type="radio" name="dimensiuneOras" id="dimensiuneOras-0" value="Oraş mare, aglomerat" checked="checked">
+                    Oraş mare, aglomerat
+                </label>
+                <label class="radio" for="dimensiuneOras-1">
+                    <input type="radio" name="dimensiuneOras" id="dimensiuneOras-1" value="Oraş mic, liniştit">
+                    Oraş mic, liniştit
+                </label>
+                <label class="radio" for="dimensiuneOras-2">
+                    <input type="radio" name="dimensiuneOras" id="dimensiuneOras-2" value="Sat/Comună/Zonă izolată">
+                    Sat/Comună/Zonă izolată
+                </label>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+            <label class="control-label" for="formSubmit"></label>
+            <div class="controls">
+                <button id="formSubmit" name="formSubmit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
