@@ -7,6 +7,7 @@ To do:
 =====
 
 * ~~Change name of Contact to Form~~ 
+* Refactor Form using this https://www.youtube.com/watch?v=OQTO-LGT04M
 * Make Form tag invisible to unlogged users.
 * Model for User and Vacations
 * Link model to Azure DB
