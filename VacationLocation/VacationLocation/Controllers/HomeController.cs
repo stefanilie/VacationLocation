@@ -22,7 +22,7 @@ namespace VacationLocation.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Form()
         {
             ViewBag.Message = "Your contact page.";
 

@@ -6,7 +6,15 @@ Software Engineering project
 To do:
 =====
 
-* complete this list with stuff to do
+* ~~Change name of Contact to Form~~ 
+* Make Form tag invisible to unlogged users.
+* Model for User and Vacations
+* Link model to Azure DB
+* Internal like vacation button and 'Share to wall button'
+* Results view
+* Frontend stuff:
+..* Welcome page with image
+..* Colours logo and stuff
 
 License
 =======
