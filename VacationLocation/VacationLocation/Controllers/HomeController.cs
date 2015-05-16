@@ -22,11 +22,17 @@ namespace VacationLocation.Controllers
             return View();
         }
 
-        public ActionResult Form()
+        public ActionResult Form(Models.FormModel form)
         {
-            ViewBag.Message = "Your contact page.";
+            List<SelectListItem> list = new List<SelectListItem>{
+                new SelectListItem(){Value ="1", Text ="Single"},
+                new SelectListItem(){Value= "2", Text="Intr-o Relatie"},
+            };
 
-            return View();
+            form = new Models.FormModel();
+            form.status = new SelectList(list, "Value", "Text");
+
+            return View(form);
         }
     }
 }

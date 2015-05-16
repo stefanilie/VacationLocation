@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
+@model VacationLocation.Models.FormModel
 
 @using (Html.BeginForm())
 {
@@ -8,26 +9,13 @@
 
         <!-- Form Name -->
         <legend>Formular</legend>
+        @Html.Label("Varsta dumneavoastra:")
+        @Html.TextBox("Varsta") <br />
 
-        <!-- Text input-->
-        <div class="control-group">
-            <label class="control-label" for="ageInput">Care este vârsta dumneavoastră:</label>
-            <div class="controls">
-                <input id="ageInput" name="ageInput" type="text" placeholder=" " class="input-xlarge" required="">
+        @Html.Label("Statut social")
+        @Html.DropDownListFor(m=>m.selectedID, Model.status, "--Statut social--")
 
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="control-group">
-            <label class="control-label" for="statusCasatorie">Sunteţi căsătorit/căsătorită:</label>
-            <div class="controls">
-                <select id="statusCasatorie" name="statusCasatorie" class="input-xlarge">
-                    <option>Nu</option>
-                    <option>Da</option>
-                </select>
-            </div>
-        </div>
+        <!-- This below will refactored and deleted!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
         <!-- Select Basic -->
         <div class="control-group">
@@ -103,6 +91,9 @@
                 <button id="formSubmit" name="formSubmit" class="btn btn-primary">Submit</button>
             </div>
         </div>
+
+
+       
 
     </fieldset>
 }
