@@ -7,7 +7,9 @@ namespace VacationLocation.Models
 {
     public class FormModel
     {
-        public int Varsta { get; set; }
+        public int Age { get; set; }
+
+        public string hasKids { get; set; }
 
         public int selectedID { get; set; }
 

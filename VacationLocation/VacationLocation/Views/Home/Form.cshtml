@@ -10,23 +10,17 @@
         <!-- Form Name -->
         <legend>Formular</legend>
         @Html.Label("Varsta dumneavoastra:")
-        @Html.TextBox("Varsta") <br />
+        @Html.TextBox("Age") <br />
 
         @Html.Label("Statut social")
         @Html.DropDownListFor(m=>m.selectedID, Model.status, "--Statut social--")
 
-        <!-- This below will refactored and deleted!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+        <br />
+        @Html.Label("Aveti copii?")
+        @Html.RadioButton("hasKids", "Da", new { id="HasKids" }) Da
+        @Html.RadioButton("hasKids", "Nu", new { id="NoKids"}) Nu
 
-        <!-- Select Basic -->
-        <div class="control-group">
-            <label class="control-label" for="statusCopii">Aveţi copii</label>
-            <div class="controls">
-                <select id="statusCopii" name="statusCopii" class="input-xlarge">
-                    <option>Nu</option>
-                    <option>Da</option>
-                </select>
-            </div>
-        </div>
+        @
 
         <!-- Text input-->
         <div class="control-group">
