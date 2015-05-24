@@ -39,18 +39,13 @@
         @Html.RadioButton("citype", "Small", new { id = "smallDest"})  Oras mediu/provincie - atractii turistice alternative, mai putina aglomeratie.<br />
         @Html.RadioButton("citype", "Tiny", new { id = "tinyDest"}) Sat/comuna/zona izolata - agroturism, liniste, tratamente balneo-climaterice, traditii locale, etc. 
         <br />
+        <br />
+        @Html.Label("resultLabel", "");
+        <br />
+        <br />
 
-
-        <!-- TO DO : - ADD SUBMIT BUTTON!!!!!!!!!!!!!
-                     - LINK TO MODEL AND AFTER TO DB -->
-        <!-- Button -->
-        <div class="control-group">
-            <label class="control-label" for="formSubmit"></label>
-            <div class="controls">
-                <button id="formSubmit" name="formSubmit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
+        <!-- TO DO : - LINK TO MODEL AND AFTER TO DB -->
+        <button type="submit">Recomanda!</button>
 
        
 

@@ -19,6 +19,9 @@ namespace VacationLocation.Models
 
         public int selectedID { get; set; }
 
-        public System.Web.Mvc.SelectList status;
+        //test variable to show wether the post worked or not.
+        public string resultLabel;
+
+        public System.Web.Mvc.SelectList status { get; set; }
     }
 }
