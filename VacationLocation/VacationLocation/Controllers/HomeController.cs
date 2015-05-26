@@ -33,13 +33,19 @@ namespace VacationLocation.Controllers
         [HttpPost]
         public ViewResult Form(Models.FormModel form)
         {
-            //InsertStuffToDb(allParamsHere);
-            form = new Models.FormModel();
-            form.resultLabel = form.Age + " / " + form.hasKids + " / " +
-                form.birthPlace + " / " + form.climate + " / " + form.residencePlace + " / " +
-                form.isSingle + " / " + form.climate;
+            if (ModelState.IsValid)
+            {
+               form.resultLabel = form.Age + " / " + form.hasKids + " / " +
+               form.birthPlace + " / " + form.climate + " / " + form.residencePlace + " / " +
+               form.isSingle + " / " + form.climate;
 
-            return View("Thanks", form);
+               return View("Thanks", form);
+            }
+            else
+            {
+                return View();
+            }
+            //InsertStuffToDb(allParamsHere);
         }
     }
 }
