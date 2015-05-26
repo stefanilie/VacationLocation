@@ -2,26 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace VacationLocation.Models
 {
     public class FormModel
     {
+        [Required]
         public int Age { get; set; }
+        
+        [Required]
+        public bool hasKids { get; set; }
 
-        public string hasKids { get; set; }
-
+        [Required]
         public string birthPlace { get; set; }
 
+        [Required]
         public string climate { get; set; }
 
+        [Required]
         public string residencePlace { get; set; }
 
-        public int selectedID { get; set; }
+        [Required]
+        public bool isSingle { get; set; }
 
+        [Required]
+        public string cityType { get; set; }
+        
         //test variable to show wether the post worked or not.
         public string resultLabel;
-
-        public System.Web.Mvc.SelectList status { get; set; }
     }
 }

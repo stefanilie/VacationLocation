@@ -25,14 +25,6 @@ namespace VacationLocation.Controllers
         [HttpGet]
         public ActionResult Form(Models.FormModel form)
         {
-            List<SelectListItem> list = new List<SelectListItem>{
-                new SelectListItem(){Value ="1", Text ="Single"},
-                new SelectListItem(){Value= "2", Text="Intr-o Relatie"},
-            };
-
-            form = new Models.FormModel();
-            form.status = new SelectList(list, "Value", "Text");
-
             return View(form);
         }
 

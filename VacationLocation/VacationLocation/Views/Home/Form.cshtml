@@ -1,48 +1,44 @@
-﻿@{
+﻿@model VacationLocation.Models.FormModel
+@{
     ViewBag.Title = "Contact";
 }
-@model VacationLocation.Models.FormModel
 
 @using (Html.BeginForm())
 {
     <fieldset>
 
-        <!-- Form Name -->
         <legend>Formular</legend>
-        @Html.Label("Varsta dumneavoastra:")<br />
-        @Html.TextBox("Age") <br /><br />
+        <p>Varsta dumneavoastra: @Html.TextBoxFor(x => x.Age)</p>
+        <!-- Form Name -->
 
-        @Html.Label("Statut social")<br />
-        @Html.DropDownListFor(m => m.selectedID, Model.status, "--Statut social--")<br />
-
-        <br />
-        @Html.Label("Aveti copii?")<br />
-        @Html.RadioButton("hasKids", "Da", new { id="HasKids" }) Da<br />
-        @Html.RadioButton("hasKids", "Nu", new { id="NoKids"}) Nu<br />
-
-        <br />
-        @Html.Label("Loc de nastere:")<br />
-        @Html.TextBox("birthPlace")<br />
-        <br />
-        @Html.Label("Orasul de resedinta:")<br />
-        @Html.TextBox("residencePlace")<br />
-        <br />
+        <p>Status social: @Html.DropDownListFor(m => m.isSingle, new [] {
+            new SelectListItem() {Text = "Single", Value = bool.TrueString},
+            new SelectListItem() {Text = "Intr-o relatie/casatorit", Value = bool.FalseString}
+                     }, "Alege o optiune...")</p>
         
+        <p>Aveti copii?
+        @Html.RadioButtonFor(x => x.hasKids, true) Da
+        @Html.RadioButtonFor(x => x.hasKids, false) Nu</p>
+       
+
+        <p>Loc de nastere: @Html.TextBoxFor(x => x.birthPlace)</p>
+
+        <p>Loc de resedinta: @Html.TextBoxFor(x => x.residencePlace)</p>
+
+        <p>Preferinte clima: @Html.DropDownListFor(m => m.climate, new[] {
+            new SelectListItem() {Text = "Cald - America de sud, India, Ecuator", Value = "hotClimate"},
+            new SelectListItem() {Text = "Temperat - Europa centrala si de vest, Coasta de Est a Americii de Nord", Value = "tempClimate"},
+            new SelectListItem() {Text = "Rece - Suedia, Norvegia, Canada, Tarile Baltice", Value="coldClimate"}
+                        }, "Alege o optiune...")</p>
+
+        <p>Genul de destinatie: @Html.DropDownListFor(x => x.cityType, new[] {
+            new SelectListItem() {Text = "Oras mare/capitala - multe atractii turistice clasice, cultura, parcuri, etc.", Value = "bigDest"},
+            new SelectListItem() {Text = "Oras mediu/provincie - atractii turistice alternative, mai putina aglomeratie.", Value = "smallDest"},
+            new SelectListItem() {Text = "Sat/comuna/zona izolata - agroturism, liniste, tratamente balneo-climaterice, traditii locale, etc.", Value = "tinyDest"}
+                           }, "Alege o optiune...")</p>
+
         <!-- ToDo: add more options like tropical-->
-        @Html.Label("Preferinte clima:") <br />
-        @Html.RadioButton("climate", "Hot", new { id="hotClimate"}) Cald - America de sud, India, Ecuator<br />
-        @Html.RadioButton("climate", "Temperate", new { id = "temClimate" }) Temperat - Europa centrala si de vest, Coasta de Est a Americii de Nord <br />
-        @Html.RadioButton("climate", "Cold", new { id = "coldClimate" }) Rece - Suedia, Norvegia, Canada, Tarile Baltice <br />
-        <br />
-        @Html.Label("Genul de destinatie:") <br />
-        @Html.RadioButton("citype", "Big", new { id = "bigDest" }) Oras mare/capitala - multe atractii turistice clasice, cultura, parcuri, etc.<br />
-        @Html.RadioButton("citype", "Small", new { id = "smallDest"})  Oras mediu/provincie - atractii turistice alternative, mai putina aglomeratie.<br />
-        @Html.RadioButton("citype", "Tiny", new { id = "tinyDest"}) Sat/comuna/zona izolata - agroturism, liniste, tratamente balneo-climaterice, traditii locale, etc. 
-        <br />
-        <br />
-        @Html.Label("resultLabel", "");
-        <br />
-        <br />
+        @Html.Label("resultLabel", "")
 
         <!-- TO DO : - LINK TO MODEL AND AFTER TO DB -->
         <button type="submit">Recomanda!</button>
