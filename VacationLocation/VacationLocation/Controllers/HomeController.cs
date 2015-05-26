@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Facebook;
 using System.Web;
+using VacationLocation.Models;
 
 namespace VacationLocation.Controllers
 {
@@ -22,29 +23,23 @@ namespace VacationLocation.Controllers
 
             return View();
         }
+
         [HttpGet]
-        public ActionResult Form(Models.FormModel form)
+        public ActionResult Form()
         {
-            return View(form);
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Form(Models.FormModel form, string Age, 
-            string hasKids, string birthPlace, string climate, 
-            string residencePlace, int selectedId, SelectList status)
+        public ViewResult Form(Models.FormModel form)
         {
             //InsertStuffToDb(allParamsHere);
-            List<SelectListItem> list = new List<SelectListItem>{
-                new SelectListItem(){Value ="1", Text ="Single"},
-                new SelectListItem(){Value= "2", Text="Intr-o Relatie"},
-            };
-
             form = new Models.FormModel();
-            form.resultLabel = Age + " / " + hasKids + " / " +
-                birthPlace + " / " + climate + " / " + residencePlace + " / " +
-                selectedId.ToString() + " / " + status.ToString();
+            form.resultLabel = form.Age + " / " + form.hasKids + " / " +
+                form.birthPlace + " / " + form.climate + " / " + form.residencePlace + " / " +
+                form.isSingle + " / " + form.climate;
 
-            return View(form);
+            return View("Thanks", form);
         }
     }
 }
