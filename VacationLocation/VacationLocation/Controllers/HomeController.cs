@@ -35,11 +35,9 @@ namespace VacationLocation.Controllers
         {
             if (ModelState.IsValid)
             {
-               form.resultLabel = form.Age + " / " + form.hasKids + " / " +
-               form.birthPlace + " / " + form.climate + " / " + form.residencePlace + " / " +
-               form.isSingle + " / " + form.climate;
-
-               return View("Thanks", form);
+                DestinationContext destContext = new DestinationContext();
+                FormModel dest = destContext.Destinations.Single(emp => emp.climate == form.climate);
+                return View("Thanks", dest);
             }
             else
             {
