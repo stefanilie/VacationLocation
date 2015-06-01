@@ -8,7 +8,7 @@ namespace VacationLocation.Models
 {
     public class DestinationContext : DbContext
     {
-        public DbSet<FormModel> Destinations { get; set; }
+        public DbSet<DestinationModel> Destinations { get; set; }
     }
 
 }

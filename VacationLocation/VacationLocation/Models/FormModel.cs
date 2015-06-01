@@ -7,11 +7,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VacationLocation.Models
 {
-    [Table("AspNetDestinations")]
     public class FormModel
     {
         [Required]
-        public int Age { get; set; }
+        public int age { get; set; }
         
         [Required]
         public bool hasKids { get; set; }

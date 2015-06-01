@@ -36,7 +36,8 @@ namespace VacationLocation.Controllers
             if (ModelState.IsValid)
             {
                 DestinationContext destContext = new DestinationContext();
-                FormModel dest = destContext.Destinations.Single(emp => emp.climate == form.climate);
+                DestinationModel dest = destContext.Destinations.Single(emp => emp.climate == form.climate);
+                Console.WriteLine(dest);
                 return View("Thanks", dest);
             }
             else

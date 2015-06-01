@@ -1,4 +1,4 @@
-﻿@model VacationLocation.Models.FormModel
+﻿@model VacationLocation.Models.DestinationModel
 
 @{
     ViewBag.Title = "Thanks";
@@ -6,11 +6,12 @@
 
 <h2>Thanks. Here is the stuff you chose.</h2>
 
-<p>@Model.resultLabel</p>
-<p>varsta @Model.Age</p>
-<p>locul nasterii: @Model.birthPlace</p>
-<p>tip oras: @Model.cityType</p>    
-<p>climat: @Model.climate</p>
-<p>are copii?: @Model.hasKids</p>
-<p>e single?: @Model.isSingle</p>
-<p>locul de resiedenta: @Model.residencePlace</p>
+<p>Orasul: @Model.cityName</p>
+<p>Tara: @Model.countryName</p>
+<p>Clima: @Model.climate</p>
+<p>Bun pt Familii:@if (Model.suitableForFamilies == 1)
+                  { @: Da! }</p>    
+<p>Bun pt Cupluri: @if (Model.suitableForCouples == 1)
+                  { @: Da! }</p>
+<p>Varsta minima: @Model.minAge</p>
+<p>Varsta maxima: @Model.maxAge</p>
