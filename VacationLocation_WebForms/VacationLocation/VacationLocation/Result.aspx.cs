@@ -11,7 +11,7 @@ namespace VacationLocation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblResult.Text = Session["results"].ToString();
         }
     }
 }

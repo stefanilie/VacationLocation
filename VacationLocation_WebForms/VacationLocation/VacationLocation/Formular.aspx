@@ -37,8 +37,8 @@
         <tr>
             <td style="width: 227px">Aveti copii?</td>
             <td style="width: 128px">
-                <asp:RadioButton ID="rbYes" runat="server" Text="Da" />
-                <asp:RadioButton ID="rbNo" runat="server" Text="Nu" />
+                <asp:RadioButton ID="rbYes" runat="server" Text="Da" GroupName="kids" />
+                <asp:RadioButton ID="rbNo" runat="server" Text="Nu" GroupName="kids" />
             </td>
             <td>&nbsp;</td>
         </tr>

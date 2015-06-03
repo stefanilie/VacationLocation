@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace VacationLocation.Scripts
+namespace VacationLocation
 {
     public class DestinationsClass
     {
@@ -26,10 +26,23 @@ namespace VacationLocation.Scripts
         public string  maxAge { get; set; }
 
         public DestinationsClass() { }
+        public DestinationsClass(string city, string country, string population,
+            string climate, string suitableForFamilies, string suitableForCouples, string minAge, string maxAge)
+        {
+            this.city = city;
+            this.country = country;
+            this.population = population;
+            this.climate = climate;
+            this.suitableForCouples = suitableForCouples;
+            this.suitableForFamilies = suitableForFamilies;
+            this.minAge = minAge;
+            this.maxAge = maxAge;
+        }
 
         public DestinationsClass(string id, string city, string country, string population,
             string climate, string suitableForFamilies, string suitableForCouples, string minAge, string maxAge)
         {
+            this.id = id;
             this.city = city;
             this.country = country;
             this.population = population;
@@ -87,7 +100,7 @@ namespace VacationLocation.Scripts
         }
 
 
-        public List<DestinationsClass> recommendShite(string age, string status, string kids,
+        public static List<DestinationsClass> recommendShite(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
         {
  
@@ -98,8 +111,8 @@ namespace VacationLocation.Scripts
             string strQuery;
 
             //Create a method that generates dynamically the query depending on what can be found in the form.
-                strQuery = "SELECT * FROM Destinatii WHERE climate = "+climate;  //MODIFICA AICI
-
+                //strQuery = "SELECT * FROM Destinatii WHERE climate = "+climate;  //MODIFICA AICI
+            strQuery = "select * from destinatii";
             try
             {
                 conn.Open();
@@ -112,12 +125,12 @@ namespace VacationLocation.Scripts
                     string id = sqlReader.GetInt32(0).ToString();
                     string strCity = sqlReader.GetValue(1).ToString();
                     string strCountry = sqlReader.GetValue(2).ToString();
-                    string strPopulation = sqlReader.GetString(3).ToString();
+                    string strPopulation = sqlReader.GetInt32(3).ToString();
                     string strClimate = sqlReader.GetString(4).ToString();
                     string strSuitableForFamilies = sqlReader.GetString(5).ToString();
                     string strSuitableForCouples = sqlReader.GetString(6).ToString();
-                    string strMinAge = sqlReader.GetString(7).ToString();
-                    string strMaxAge = sqlReader.GetString(8).ToString();
+                    string strMinAge = sqlReader.GetInt32(7).ToString();
+                    string strMaxAge = sqlReader.GetInt32(8).ToString();
 
 
                     DestinationsClass objArticle = new DestinationsClass(id, strCity, strCountry, strPopulation, 

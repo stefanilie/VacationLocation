@@ -374,7 +374,7 @@
     <Compile Include="Result.aspx.designer.cs">
       <DependentUpon>Result.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Scripts\DestinationsClass.cs" />
+    <Compile Include="DestinationsClass.cs" />
     <Compile Include="Scripts\IDictionary.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
