@@ -76,12 +76,16 @@
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>
-            <td style="width: 128px">&nbsp;</td>
+            <td style="width: 128px">
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+            </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>
-            <td style="width: 128px">&nbsp;</td>
+            <td style="width: 128px">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+            </td>
             <td>&nbsp;</td>
         </tr>
     </table>
