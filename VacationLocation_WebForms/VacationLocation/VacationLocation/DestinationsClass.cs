@@ -25,9 +25,17 @@ namespace VacationLocation
 
         public string  maxAge { get; set; }
 
+        public string relief { get; set; }
+
+        public string likes { get; set; }
+
+        public string rating { get; set; }
+
         public DestinationsClass() { }
+
         public DestinationsClass(string city, string country, string population,
-            string climate, string suitableForFamilies, string suitableForCouples, string minAge, string maxAge)
+            string climate, string suitableForFamilies, string suitableForCouples, 
+            string minAge, string maxAge, string relief, string likes)
         {
             this.city = city;
             this.country = country;
@@ -37,10 +45,13 @@ namespace VacationLocation
             this.suitableForFamilies = suitableForFamilies;
             this.minAge = minAge;
             this.maxAge = maxAge;
+            this.relief = relief;
+            this.likes = likes;
         }
 
         public DestinationsClass(string id, string city, string country, string population,
-            string climate, string suitableForFamilies, string suitableForCouples, string minAge, string maxAge)
+            string climate, string suitableForFamilies, string suitableForCouples, 
+            string minAge, string maxAge, string relief, string likes)
         {
             this.id = id;
             this.city = city;
@@ -51,54 +62,9 @@ namespace VacationLocation
             this.suitableForFamilies = suitableForFamilies;
             this.minAge = minAge;
             this.maxAge = maxAge;
+            this.relief = relief;
+            this.likes = likes;
         }
-
-        public DestinationsClass selectById(int id)
-        {
-            DestinationsClass toReturn = new DestinationsClass();
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ToString();
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
-            string strQuery;
-
-            //Create a method that generates dynamically the query depending on what can be found in the form.
-            strQuery = "SELECT * FROM Destinatii WHERE id = " + id;  //MODIFICA AICI
-
-            try
-            {
-                conn.Open();
-                command.CommandText = strQuery;
-                System.Data.SqlClient.SqlDataReader sqlReader = command.ExecuteReader();
-
-                //Guid id = new Guid(sqlReader.GetGuid(0).ToString());
-                string strId = sqlReader.GetInt32(0).ToString();
-                string strCity = sqlReader.GetValue(1).ToString();
-                string strCountry = sqlReader.GetValue(2).ToString();
-                string strPopulation = sqlReader.GetString(3).ToString();
-                string strClimate = sqlReader.GetString(4).ToString();
-                string strSuitableForFamilies = sqlReader.GetString(5).ToString();
-                string strSuitableForCouples = sqlReader.GetString(6).ToString();
-                string strMinAge = sqlReader.GetString(7).ToString();
-                string strMaxAge = sqlReader.GetString(8).ToString();
-
-
-                DestinationsClass objArticle = new DestinationsClass(strId, strCity, strCountry, strPopulation,
-                    strClimate, strSuitableForFamilies, strSuitableForCouples, strMinAge, strMaxAge);
-
-                toReturn = objArticle;
-            }
-            finally
-            {
-                conn.Close();
-                command.Parameters.Clear();
-            }
-            if (toReturn.city == "")
-            {
-                toReturn.city = "FAIL";
-            }
-            return toReturn;
-        }
-
 
         public static List<DestinationsClass> recommendShite(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
@@ -131,10 +97,13 @@ namespace VacationLocation
                     string strSuitableForCouples = sqlReader.GetString(6).ToString();
                     string strMinAge = sqlReader.GetInt32(7).ToString();
                     string strMaxAge = sqlReader.GetInt32(8).ToString();
+                    string relief = sqlReader.GetString(9).ToString();
+                    string likes = sqlReader.GetInt32(10).ToString();
 
 
                     DestinationsClass objArticle = new DestinationsClass(id, strCity, strCountry, strPopulation, 
-                        strClimate, strSuitableForFamilies, strSuitableForCouples, strMinAge, strMaxAge);
+                        strClimate, strSuitableForFamilies, strSuitableForCouples, 
+                        strMinAge, strMaxAge, relief, likes);
 
                     arrDestinations.Add(objArticle);
                 }
