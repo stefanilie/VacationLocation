@@ -66,8 +66,14 @@ namespace VacationLocation
             this.likes = likes;
         }
 
-        public static List<DestinationsClass> recommendShite(string age, string status, string kids,
+        //Create a method that generates dynamically the query depending on what can be found in the form.
+        private string createQueryFromFormInfo(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
+        {
+            return "";
+        }
+
+        public static List<DestinationsClass> recommendShite()
         {
  
             List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
@@ -76,7 +82,6 @@ namespace VacationLocation
             System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
             string strQuery;
 
-            //Create a method that generates dynamically the query depending on what can be found in the form.
                 //strQuery = "SELECT * FROM Destinatii WHERE climate = "+climate;  //MODIFICA AICI
             strQuery = "select * from destinatii";
             try
