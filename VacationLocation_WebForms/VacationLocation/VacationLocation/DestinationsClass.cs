@@ -73,7 +73,8 @@ namespace VacationLocation
             return "";
         }
 
-        public static List<DestinationsClass> recommendShite()
+        public static List<DestinationsClass> recommendShite(string age, string status, string kids,
+            string birth, string residence, string climate, string destination)
         {
  
             List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
@@ -83,7 +84,35 @@ namespace VacationLocation
             string strQuery;
 
                 //strQuery = "SELECT * FROM Destinatii WHERE climate = "+climate;  //MODIFICA AICI
-            strQuery = "select * from destinatii";
+
+            strQuery = "select * from destinatii WHERE city != " + birth + " AND city != " + residence + "AND climate = " + climate + "AND " + age
+                + "BETWEEN minAge AND maxAge";
+            if (kids == "No")
+            {
+                strQuery += "AND suitableForFamilies = 0";
+            }
+            else
+            {
+                strQuery += "And suitableForFamilies = 1";
+            }
+
+            if (status == "In o relatie/Casatorit(a)")
+            {
+                strQuery += "AND suitableForCouples = 1";
+            }
+            if (destination == "bigCity")
+            {
+                strQuery += "AND population > 800000";
+            }
+            if (destination == "smallDest")
+            {
+                strQuery += "AND population between 100000 AND 800000 ";
+            }
+            if (destination == "tinyDest")
+            {
+                strQuery += "AND population < 100000 ";
+            }
+
             try
             {
                 conn.Open();
