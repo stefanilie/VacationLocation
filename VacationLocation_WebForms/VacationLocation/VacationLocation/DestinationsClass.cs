@@ -67,26 +67,12 @@ namespace VacationLocation
         }
 
         //Create a method that generates dynamically the query depending on what can be found in the form.
-        private string createQueryFromFormInfo(string age, string status, string kids,
+        private static string createQueryFromFormInfo(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
         {
-            return "";
-        }
-
-        public static List<DestinationsClass> recommendShite(string age, string status, string kids,
-            string birth, string residence, string climate, string destination)
-        {
- 
-            List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ToString();
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
-            string strQuery;
-
-                //strQuery = "SELECT * FROM Destinatii WHERE climate = "+climate;  //MODIFICA AICI
-
-            strQuery = "select * from destinatii WHERE city != " + birth + " AND city != " + residence + "AND climate = " + climate + "AND " + age
-                + "BETWEEN minAge AND maxAge";
+            string strQuery = "select * from destinatii WHERE city != " + birth +
+                " AND city != " + residence + "AND climate = " + climate + "AND " +
+                age+ "BETWEEN minAge AND maxAge";
             if (kids == "No")
             {
                 strQuery += "AND suitableForFamilies = 0";
@@ -112,7 +98,19 @@ namespace VacationLocation
             {
                 strQuery += "AND population < 100000 ";
             }
+            return strQuery;
+        }
 
+        public static List<DestinationsClass> recommendShite(string age, string status, string kids,
+            string birth, string residence, string climate, string destination)
+        {
+ 
+            List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ToString();
+            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
+            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
+            string strQuery = createQueryFromFormInfo(age, status, kids, birth, residence, climate, destination);
+           
             try
             {
                 conn.Open();
