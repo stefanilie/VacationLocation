@@ -71,32 +71,32 @@ namespace VacationLocation
             string birth, string residence, string climate, string destination)
         {
             string strQuery = "select * from destinatii WHERE city != " + birth +
-                " AND city != " + residence + "AND climate = " + climate + "AND " +
-                age+ "BETWEEN minAge AND maxAge";
+                " AND city != " + residence + " AND climate = " + climate + " AND " +
+                age+ " BETWEEN minAge AND maxAge";
             if (kids == "No")
             {
-                strQuery += "AND suitableForFamilies = 0";
+                strQuery += " AND suitableForFamilies = 0";
             }
             else
             {
-                strQuery += "And suitableForFamilies = 1";
+                strQuery += " And suitableForFamilies = 1";
             }
 
             if (status == "In o relatie/Casatorit(a)")
             {
-                strQuery += "AND suitableForCouples = 1";
+                strQuery += " AND suitableForCouples = 1";
             }
             if (destination == "bigCity")
             {
-                strQuery += "AND population > 800000";
+                strQuery += " AND population > 800000";
             }
             if (destination == "smallDest")
             {
-                strQuery += "AND population between 100000 AND 800000 ";
+                strQuery += " AND population between 100000 AND 800000 ";
             }
             if (destination == "tinyDest")
             {
-                strQuery += "AND population < 100000 ";
+                strQuery += " AND population < 100000 ";
             }
             return strQuery;
         }
