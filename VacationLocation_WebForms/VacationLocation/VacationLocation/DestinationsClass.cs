@@ -111,8 +111,23 @@ namespace VacationLocation
             if (destination == "tinyDest")
             {
                 strQuery += "AND population < 100000 ";
+
             }
 
+            // add relief option: Ce ati prefera: 1) Sa stati cu burta la soare la mare 2) sa fiti la aer proaspat de munte 3)irelevant
+            /* if ( relief == munte)
+               {
+             *     strQuery += "AND relief = munte";
+             * }
+             * if ( relief == mare )  
+             * {
+             *     strQuery += "AND relief = "mare" ; 
+             * }
+             * 
+             */
+           //WRITE HERE RECOMMENDATION  ALGORHITHM!!!!!!
+            
+            
             try
             {
                 conn.Open();
