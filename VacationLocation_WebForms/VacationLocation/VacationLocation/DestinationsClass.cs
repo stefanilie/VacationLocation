@@ -112,7 +112,6 @@ namespace VacationLocation
              * }
              * 
              */
-           //WRITE HERE RECOMMENDATION  ALGORHITHM!!!!!!
             
         public static List<DestinationsClass> recommendShite(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
