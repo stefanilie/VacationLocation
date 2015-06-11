@@ -96,17 +96,11 @@ namespace VacationLocation
             }
             if (destination == "tinyDest")
             {
-<<<<<<< HEAD
-                strQuery += "AND population < 100000 ";
 
-=======
                 strQuery += " AND population < 100000 ";
->>>>>>> 9570646b7a235296dccf8efb07e61f179f63a2a9
             }
             return strQuery;
         }
-
-<<<<<<< HEAD
             // add relief option: Ce ati prefera: 1) Sa stati cu burta la soare la mare 2) sa fiti la aer proaspat de munte 3)irelevant
             /* if ( relief == munte)
                {
@@ -120,8 +114,6 @@ namespace VacationLocation
              */
            //WRITE HERE RECOMMENDATION  ALGORHITHM!!!!!!
             
-            
-=======
         public static List<DestinationsClass> recommendShite(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
         {
@@ -131,8 +123,7 @@ namespace VacationLocation
             System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
             System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
             string strQuery = createQueryFromFormInfo(age, status, kids, birth, residence, climate, destination);
-           
->>>>>>> 9570646b7a235296dccf8efb07e61f179f63a2a9
+
             try
             {
                 conn.Open();
