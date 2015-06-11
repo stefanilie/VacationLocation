@@ -70,21 +70,20 @@ namespace VacationLocation
         private static string createQueryFromFormInfo(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
         {
-            string strQuery = "select * from destinatii WHERE city != " + birth +
-                " AND city != " + residence + " AND climate = " + climate + " AND " +
-                age+ " BETWEEN minAge AND maxAge";
-            if (kids == "No")
+            string strQuery = "select * from destinatii WHERE city != '" + birth + "' AND city != '" + residence + "' AND climate = '" + climate + "' AND " + age
+                + " BETWEEN minAge AND maxAge";
+            if (kids == "Yes")
+            /*  {
+                  strQuery += " AND suitableForFamilies = no";
+              }
+              else*/
             {
-                strQuery += " AND suitableForFamilies = 0";
-            }
-            else
-            {
-                strQuery += " And suitableForFamilies = 1";
+                strQuery += " And suitableForFamilies = 'yes'";
             }
 
             if (status == "In o relatie/Casatorit(a)")
             {
-                strQuery += " AND suitableForCouples = 1";
+                strQuery += " AND suitableForCouples = 'yes'";
             }
             if (destination == "bigCity")
             {
@@ -96,8 +95,8 @@ namespace VacationLocation
             }
             if (destination == "tinyDest")
             {
-
                 strQuery += " AND population < 100000 ";
+
             }
             return strQuery;
         }

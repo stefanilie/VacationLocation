@@ -14,7 +14,7 @@
         </tr>
     </table>
 
-<form id="form1" runat="server">
+<form id="form1">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.js'
         type="text/javascript"></script>
