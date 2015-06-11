@@ -91,6 +91,7 @@
                     <asp:ListItem Value="hotClimate">Cald - America de sud, India, Ecuator</asp:ListItem>
                     <asp:ListItem Value="tempClimate">Temperat - Europa centrala si de vest, Coasta de Est a Americii de Nord</asp:ListItem>
                     <asp:ListItem Value="coldClimate">Rece - Suedia, Norvegia, Canada, Tarile Baltice</asp:ListItem>
+                    <asp:ListItem Value="anyClimate">Orice clima</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td style="height: 22px">
@@ -111,6 +112,7 @@
                     <asp:ListItem Value="bigCity">Oras mare/capitala - multe atractii turistice clasice, cultura, parcuri, etc.</asp:ListItem>
                     <asp:ListItem Value="smallDest">Oras mediu/provincie - atractii turistice alternative, mai putina aglomeratie.</asp:ListItem>
                     <asp:ListItem Value="tinyDest">Sat/comuna/zona izolata - agroturism, liniste, tratamente balneo-climaterice, traditii locale, etc.</asp:ListItem>
+                    <asp:ListItem Value="anyDest">Orice destinatie</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td>
@@ -122,6 +124,30 @@
             <td style="width: 128px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
+
+        <tr>
+            <td style="width: 227px">Tipul de relief:</td>
+            <td style="width: 128px">
+                <asp:DropDownList ID="ddRelief" runat="server">
+                    <asp:ListItem Selected="True"></asp:ListItem>
+                    <asp:ListItem Value="mare">Mare</asp:ListItem>
+                    <asp:ListItem Value="campie">Campie</asp:ListItem>
+                    <asp:ListItem Value="podis">Podis</asp:ListItem>
+                    <asp:ListItem Value="munte">Munte</asp:ListItem>
+                    <asp:ListItem Value="desert">Desert</asp:ListItem>
+                    <asp:ListItem Value="anyRel">Orice destinatie</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddRelief" ErrorMessage="Camp obligatoriu" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 227px">&nbsp;</td>
+            <td style="width: 128px">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+ 
         <tr>
             <td style="width: 227px">&nbsp;</td>
             <td style="width: 128px">

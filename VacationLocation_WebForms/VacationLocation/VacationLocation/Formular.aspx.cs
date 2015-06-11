@@ -72,7 +72,7 @@ namespace VacationLocation
             if (rbNo.Checked)
             {
                 var destination = DestinationsClass.recommendShite(txtAge.Text, ddStatus.SelectedValue, rbNo.Text, txtBirthPlace.Text,
-                    txtLivingPlace.Text, ddClimate.SelectedValue, ddDestination.SelectedValue);
+                    txtLivingPlace.Text, ddClimate.SelectedValue, ddDestination.SelectedValue,ddRelief.SelectedValue);
                 string results = this.sprintStuff(destination);
                 Session["results"] = results;
                 Response.Redirect("Result.aspx");
@@ -80,7 +80,7 @@ namespace VacationLocation
             else if (rbYes.Checked)
             {
                 var destination = DestinationsClass.recommendShite(txtAge.Text, ddStatus.SelectedValue, rbYes.Text, txtBirthPlace.Text,
-                    txtLivingPlace.Text, ddClimate.SelectedValue, ddDestination.SelectedValue);
+                    txtLivingPlace.Text, ddClimate.SelectedValue, ddDestination.SelectedValue, ddRelief.SelectedValue);
                 this.sprintStuff(destination);
                 string results = this.sprintStuff(destination);
                 Session["results"] = results;

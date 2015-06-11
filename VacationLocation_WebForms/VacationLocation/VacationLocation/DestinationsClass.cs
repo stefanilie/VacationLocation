@@ -68,10 +68,12 @@ namespace VacationLocation
 
         //Create a method that generates dynamically the query depending on what can be found in the form.
         private static string createQueryFromFormInfo(string age, string status, string kids,
-            string birth, string residence, string climate, string destination)
+            string birth, string residence, string climate, string destination, string relief)
         {
-            string strQuery = "select * from destinatii WHERE city != '" + birth + "' AND city != '" + residence + "' AND climate = '" + climate + "' AND " + age
+            string strQuery = "select * from destinatii WHERE city != '" + birth + "' AND city != '" + residence + /*"' AND climate = '" + climate + */"' AND " + age
                 + " BETWEEN minAge AND maxAge";
+            if(climate!="anyClimate")
+            { strQuery +=" AND climate = '" + climate+"'"; }
             if (kids == "Yes")
             /*  {
                   strQuery += " AND suitableForFamilies = no";
@@ -85,19 +87,26 @@ namespace VacationLocation
             {
                 strQuery += " AND suitableForCouples = 'yes'";
             }
-            if (destination == "bigCity")
+           
+            if (destination != "anyDest")
             {
-                strQuery += " AND population > 800000";
+                if (destination == "bigCity")
+                {
+                    strQuery += " AND population > 800000";
+                }
+                if (destination == "smallDest")
+                {
+                    strQuery += " AND population between 100000 AND 800000 ";
+                }
+                if (destination == "tinyDest")
+                {
+                    strQuery += " AND population < 100000 ";
+                }
             }
-            if (destination == "smallDest")
-            {
-                strQuery += " AND population between 100000 AND 800000 ";
-            }
-            if (destination == "tinyDest")
-            {
-                strQuery += " AND population < 100000 ";
 
-            }
+            if (relief != "anyRel")
+            { strQuery += " AND relief = '" + relief+"'"; }
+
             return strQuery;
         }
             // add relief option: Ce ati prefera: 1) Sa stati cu burta la soare la mare 2) sa fiti la aer proaspat de munte 3)irelevant
@@ -113,14 +122,14 @@ namespace VacationLocation
              */
             
         public static List<DestinationsClass> recommendShite(string age, string status, string kids,
-            string birth, string residence, string climate, string destination)
+            string birth, string residence, string climate, string destination, string tipRelief)
         {
  
             List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
             string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ToString();
             System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
             System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
-            string strQuery = createQueryFromFormInfo(age, status, kids, birth, residence, climate, destination);
+            string strQuery = createQueryFromFormInfo(age, status, kids, birth, residence, climate, destination, tipRelief);
 
             try
             {
