@@ -9,7 +9,9 @@
             <td style="width: 128px">
                 <asp:TextBox ID="txtAge" runat="server" Width="245px"></asp:TextBox>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="reqAge" runat="server" ControlToValidate="txtAge" ErrorMessage="Camp obligatoriu" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>
@@ -26,7 +28,9 @@
                     <asp:ListItem>In o relatie/Casatorit(a)</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddStatus" ErrorMessage="Camp obligatoriu" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>
@@ -35,12 +39,12 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 227px">Aveti copii?</td>
-            <td style="width: 128px">
+            <td style="width: 227px; height: 21px;">Aveti copii?</td>
+            <td style="width: 128px; height: 21px;">
                 <asp:RadioButton ID="rbYes" runat="server" Text="Da" GroupName="kids" />
                 <asp:RadioButton ID="rbNo" runat="server" Text="Nu" GroupName="kids" />
             </td>
-            <td>&nbsp;</td>
+            <td style="height: 21px">&nbsp;</td>
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>
@@ -53,7 +57,9 @@
             <td style="width: 128px">
                 <asp:TextBox ID="txtBirthPlace" runat="server" Width="245px"></asp:TextBox>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtBirthPlace" ErrorMessage="Camp obligatoriu" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>
@@ -66,7 +72,9 @@
             <td style="width: 128px">
                 <asp:TextBox ID="txtLivingPlace" runat="server" Width="245px"></asp:TextBox>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtLivingPlace" ErrorMessage="Camp obligatoriu" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>
@@ -85,7 +93,9 @@
                     <asp:ListItem Value="coldClimate">Rece - Suedia, Norvegia, Canada, Tarile Baltice</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td style="height: 22px"></td>
+            <td style="height: 22px">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddClimate" ErrorMessage="Camp obligatoriu" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 227px; height: 22px;">&nbsp;</td>
@@ -103,7 +113,9 @@
                     <asp:ListItem Value="tinyDest">Sat/comuna/zona izolata - agroturism, liniste, tratamente balneo-climaterice, traditii locale, etc.</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddDestination" ErrorMessage="Camp obligatoriu" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 227px">&nbsp;</td>

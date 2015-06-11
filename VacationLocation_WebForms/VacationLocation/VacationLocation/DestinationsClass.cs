@@ -67,53 +67,46 @@ namespace VacationLocation
         }
 
         //Create a method that generates dynamically the query depending on what can be found in the form.
-        private string createQueryFromFormInfo(string age, string status, string kids,
+        private static string createQueryFromFormInfo(string age, string status, string kids,
             string birth, string residence, string climate, string destination)
         {
-            return "";
-        }
-
-        public static List<DestinationsClass> recommendShite(string age, string status, string kids,
-            string birth, string residence, string climate, string destination)
-        {
- 
-            List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ToString();
-            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
-            string strQuery;
-
-                //strQuery = "SELECT * FROM Destinatii WHERE climate = "+climate;  //MODIFICA AICI
-
-            strQuery = "select * from destinatii WHERE city != " + birth + " AND city != " + residence + "AND climate = " + climate + "AND " + age
-                + "BETWEEN minAge AND maxAge";
+            string strQuery = "select * from destinatii WHERE city != " + birth +
+                " AND city != " + residence + " AND climate = " + climate + " AND " +
+                age+ " BETWEEN minAge AND maxAge";
             if (kids == "No")
             {
-                strQuery += "AND suitableForFamilies = 0";
+                strQuery += " AND suitableForFamilies = 0";
             }
             else
             {
-                strQuery += "And suitableForFamilies = 1";
+                strQuery += " And suitableForFamilies = 1";
             }
 
             if (status == "In o relatie/Casatorit(a)")
             {
-                strQuery += "AND suitableForCouples = 1";
+                strQuery += " AND suitableForCouples = 1";
             }
             if (destination == "bigCity")
             {
-                strQuery += "AND population > 800000";
+                strQuery += " AND population > 800000";
             }
             if (destination == "smallDest")
             {
-                strQuery += "AND population between 100000 AND 800000 ";
+                strQuery += " AND population between 100000 AND 800000 ";
             }
             if (destination == "tinyDest")
             {
+<<<<<<< HEAD
                 strQuery += "AND population < 100000 ";
 
+=======
+                strQuery += " AND population < 100000 ";
+>>>>>>> 9570646b7a235296dccf8efb07e61f179f63a2a9
             }
+            return strQuery;
+        }
 
+<<<<<<< HEAD
             // add relief option: Ce ati prefera: 1) Sa stati cu burta la soare la mare 2) sa fiti la aer proaspat de munte 3)irelevant
             /* if ( relief == munte)
                {
@@ -128,6 +121,18 @@ namespace VacationLocation
            //WRITE HERE RECOMMENDATION  ALGORHITHM!!!!!!
             
             
+=======
+        public static List<DestinationsClass> recommendShite(string age, string status, string kids,
+            string birth, string residence, string climate, string destination)
+        {
+ 
+            List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ToString();
+            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
+            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
+            string strQuery = createQueryFromFormInfo(age, status, kids, birth, residence, climate, destination);
+           
+>>>>>>> 9570646b7a235296dccf8efb07e61f179f63a2a9
             try
             {
                 conn.Open();
