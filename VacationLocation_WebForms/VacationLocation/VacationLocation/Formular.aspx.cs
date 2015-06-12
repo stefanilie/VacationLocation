@@ -28,41 +28,16 @@ namespace VacationLocation
                 </tr>
 
                 <tr>
-                    <th>City:</th>
-                    <td>{1}</td>
+                    <th><h3>City:</h3></th>
+                    <td><h3>{1}</h3></td>
                 </tr>
-                
+            
                 <tr>
-                    <th>Country:</th>
-                    <td>{2}</td>
+                    <th><h3>Country:</h3></th>
+                    <td><h3>{2}</h3></td>
                 </tr>
-
-                <tr>
-                    <th>Population:</th>
-                    <td>{3}</td>
-                </tr>   
-                <tr>
-                    <th>Climate:</th>
-                    <td>{4}</td>
-                </tr>
-                <tr>
-                    <th>Suitable for families:</th>
-                    <td>{5}</td>
-                </tr>
-                <tr>
-                    <th>Suitable for couples:</th>
-                    <td>{6}</td>
-                </tr>
-                <tr>
-                    <th>Min age:</th>
-                    <td>{7}</td>
-                </tr>  
-                <tr>
-                    <th>MaxAge:</th>
-                    <td>{8}</td>
-                </tr>        
-                </table><br><br>", deal.photoLink, deal.city.ToString(), deal.country.ToString(), deal.population, deal.climate.ToString(),
-                                 deal.suitableForFamilies, deal.suitableForCouples, deal.minAge, deal.maxAge ));
+      
+                </table><br><br>", deal.photoLink, deal.city.ToString(), deal.country.ToString()));
             }
             return sb.ToString();
         }
