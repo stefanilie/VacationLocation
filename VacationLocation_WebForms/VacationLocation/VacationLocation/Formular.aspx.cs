@@ -23,8 +23,8 @@ namespace VacationLocation
                 sb.Append(string.Format(@"<table class='dealTable'>
                 
                 <tr>
-                    <th>id:</th>
-                    <td>{0}</td>
+                    
+                    <td><img class='img-responsive' style=""max-width:500px; max-height:500px;"" src='{0}'></img></td>
                 </tr>
 
                 <tr>
@@ -61,7 +61,7 @@ namespace VacationLocation
                     <th>MaxAge:</th>
                     <td>{8}</td>
                 </tr>        
-                </table><br><br>", deal.id, deal.city.ToString(), deal.country.ToString(), deal.population, deal.climate.ToString(),
+                </table><br><br>", deal.photoLink, deal.city.ToString(), deal.country.ToString(), deal.population, deal.climate.ToString(),
                                  deal.suitableForFamilies, deal.suitableForCouples, deal.minAge, deal.maxAge ));
             }
             return sb.ToString();

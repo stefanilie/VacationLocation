@@ -31,11 +31,13 @@ namespace VacationLocation
 
         public string rating { get; set; }
 
+        public string photoLink { get; set; }
+
         public DestinationsClass() { }
 
         public DestinationsClass(string city, string country, string population,
             string climate, string suitableForFamilies, string suitableForCouples, 
-            string minAge, string maxAge, string relief, string likes)
+            string minAge, string maxAge, string relief, string likes, /*string rating,*/ string photoLink)
         {
             this.city = city;
             this.country = country;
@@ -47,11 +49,13 @@ namespace VacationLocation
             this.maxAge = maxAge;
             this.relief = relief;
             this.likes = likes;
+           // this.rating = rating;
+            this.photoLink = photoLink;
         }
 
         public DestinationsClass(string id, string city, string country, string population,
             string climate, string suitableForFamilies, string suitableForCouples, 
-            string minAge, string maxAge, string relief, string likes)
+            string minAge, string maxAge, string relief, string likes,/* string rating,*/ string photoLink)
         {
             this.id = id;
             this.city = city;
@@ -64,6 +68,8 @@ namespace VacationLocation
             this.maxAge = maxAge;
             this.relief = relief;
             this.likes = likes;
+          //  this.rating = rating;
+            this.photoLink = photoLink;
         }
 
         //Create a method that generates dynamically the query depending on what can be found in the form.
@@ -141,11 +147,12 @@ namespace VacationLocation
                     string strMaxAge = sqlReader.GetInt32(8).ToString();
                     string relief = sqlReader.GetString(9).ToString();
                     string likes = sqlReader.GetInt32(10).ToString();
-
+                   // string rating = sqlReader.GetInt32(11).ToString();
+                    string strPhotoLink = sqlReader.GetString(12);
 
                     DestinationsClass objArticle = new DestinationsClass(id, strCity, strCountry, strPopulation, 
                         strClimate, strSuitableForFamilies, strSuitableForCouples, 
-                        strMinAge, strMaxAge, relief, likes);
+                        strMinAge, strMaxAge, relief, likes, strPhotoLink);
 
                     arrDestinations.Add(objArticle);
                 }
