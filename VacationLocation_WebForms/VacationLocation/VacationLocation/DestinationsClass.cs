@@ -115,6 +115,8 @@ namespace VacationLocation
 
             return strQuery;
         }
+
+
            
             
         public static List<DestinationsClass> recommendShite(string age, string status, string kids,
@@ -122,7 +124,7 @@ namespace VacationLocation
         {
  
             List<DestinationsClass> arrDestinations = new List<DestinationsClass>();
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ToString();
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString);
             System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("", conn);
             string strQuery = createQueryFromFormInfo(age, status, kids, birth, residence, climate, destination, tipRelief);
@@ -156,6 +158,11 @@ namespace VacationLocation
 
                     arrDestinations.Add(objArticle);
                 }
+
+                // add algorithm below
+
+
+
             }
             finally
             {
