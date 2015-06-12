@@ -109,17 +109,7 @@ namespace VacationLocation
 
             return strQuery;
         }
-            // add relief option: Ce ati prefera: 1) Sa stati cu burta la soare la mare 2) sa fiti la aer proaspat de munte 3)irelevant
-            /* if ( relief == munte)
-               {
-             *     strQuery += "AND relief = munte";
-             * }
-             * if ( relief == mare )  
-             * {
-             *     strQuery += "AND relief = "mare" ; 
-             * }
-             * 
-             */
+           
             
         public static List<DestinationsClass> recommendShite(string age, string status, string kids,
             string birth, string residence, string climate, string destination, string tipRelief)
