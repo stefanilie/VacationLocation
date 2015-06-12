@@ -21,19 +21,20 @@ namespace VacationLocation
             foreach(DestinationsClass deal in arrDealer)
             {
                 sb.Append(string.Format(@"<table class='dealTable'>
-                
-                <tr>
-                    
-                    <td><img class='img-responsive' style=""max-width:500px; max-height:500px;"" src='{0}'></img></td>
-                </tr>
+
+                <div class='img-result'>
+                    <img class=""img-circle2"" alt='Circular Image' src='{0}'/>
+                    <p>Locatie: {1}</p>
+                    <p>Tara: {2}</p>
+                </div>
 
                 <tr>
-                    <th><h3>City:</h3></th>
+                    <th><h3>Locatie:</h3></th>
                     <td><h3>{1}</h3></td>
                 </tr>
             
                 <tr>
-                    <th><h3>Country:</h3></th>
+                    <th><h3>Tara:</h3></th>
                     <td><h3>{2}</h3></td>
                 </tr>
       
