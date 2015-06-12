@@ -37,17 +37,18 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" href="~/Formular">Formular</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
-
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/Formular">Formular</a></li>
+                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
@@ -64,6 +65,25 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
+                <div class="footer">
+                    <div style="margin: 0 auto; text-align:center; color:white;">
+                        <a href="https://www.facebook.com/ilie.stefan.35" target="_blank">
+                            <img class="img-circle" alt="Circular Image" src="https://scontent-fra3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/10988328_949891121708909_2806909425862258004_n.jpg?oh=ebb88da5269765985a7d0d09265800c5&oe=56324B40"/>
+                        </a>
+                        <a href="https://www.facebook.com/truta.marian?fref=ts" target="_blank">
+                            <img class="img-circle" alt="Circular Image" src="https://scontent-fra3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/150062_111289702274097_321280_n.jpg?oh=16ed914725477b67661a5404080c4a02&oe=56347003"/>
+                        </a>
+                        <a href="https://www.facebook.com/rentea.andreeamihaela?fref=ts" target="_blank">
+                            <img class="img-circle" alt="Circular Image" src="https://scontent-fra3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10384526_387696821388619_2705370006026526304_n.jpg?oh=827b7b95f8db4038dac13256401b97c1&oe=55F84CE4"/>
+                        </a>
+                        <a href="https://www.facebook.com/selena.cv?fref=ts" target="_blank">
+                            <img class="img-circle" alt="Circular Image" src="https://scontent-fra3-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/11002645_849640251764190_4394015568330489716_n.jpg?oh=08748881e69fab1ffe216f44c50f1138&oe=55FD8AF7"/>
+                        </a>
+                        <a href="https://www.facebook.com/teo.maria.m?fref=ts" target="_blank">
+                            <img class="img-circle" alt="Circular Image" src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/11032222_941289349226371_1869298335424602734_n.jpg?oh=d0b548ad18027441422147239eed1695&oe=562D5A08&__gda__=1442157185_c258b0426ab53e925292df66a843470c"/>
+                        </a>
+                    </div>
+                </div>
                 <p>&copy; <%: DateTime.Now.Year %> Rentea Andreea, Selena Covrig, Moroe Teodora, Ilie Stefan Ionut, Truta Marian</p>
             </footer>
         </div>

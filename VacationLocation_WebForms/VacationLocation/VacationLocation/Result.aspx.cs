@@ -38,33 +38,5 @@ namespace VacationLocation
                 }
             }
         }
-
-        [WebMethod]
-        public static string GetRating()
-        {
-            string sql = "SELECT ROUND(ISNULL(CAST(SUM(rating) AS NUMERIC(5, 2)) / COUNT(rating), 0), 1) Average";
-            sql += ", COUNT(rating) Total FROM Destinatii";
-            string constr = ConfigurationManager.ConnectionStrings["ConexiuneaLuiDumnezeu"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand(sql))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    con.Open();
-                    string json = string.Empty;
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
-                    {
-                        sdr.Read();
-                        json += "[ {";
-                        json += string.Format("Average: {0}, Total: {1}", sdr["Average"], sdr["Total"]);
-                        json += "} ]";
-                        sdr.Close();
-                    }
-                    con.Close();
-                    return json;
-                }
-            }
-        }
     }
 }
